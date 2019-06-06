@@ -1,11 +1,11 @@
 import React from 'react';
-import { Button } from 'semantic-ui-react'
+import Index from './components/index'
 
 function App() {
   return (
-    <div>
-      <Button primary >Semantic-ui-react Success!!</Button>
-    </div>
+      <div >
+        <Index />
+      </div>
   );
 }
 
