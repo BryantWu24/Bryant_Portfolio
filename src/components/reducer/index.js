@@ -31,10 +31,28 @@ const Reducer = (state = initState, action) => {
             })
 
         case 'TODO_HANDLE_TODO_ADD_SUB_OPEN':
+
+            console.log('asd', action.whoOpen)
+
+
+            let resultt = state.todo_todo_data.map((val) => {
+                if (val.id === action.whoOpen.id) {
+                    val.modalOpen = true
+                    return val
+                } else {
+                    return val
+                }
+            })
+
             return Object.assign({}, state, {
-                todo_todo_addSubModelOpen: true,
+                todo_todo_data: resultt,
                 todo_todo_addSubInput: ''
             })
+
+            // return Object.assign({}, state, {
+            //     todo_todo_addSubModelOpen: true,
+            //     todo_todo_addSubInput: ''
+            // })
 
 
         case 'TODO_ADD_TODO_MAINTASK':
@@ -45,6 +63,7 @@ const Reducer = (state = initState, action) => {
                 return Object.assign({}, state, {
                     todo_todo_data: [...state.todo_todo_data, {
                         id: nowId + 1,
+                        modalOpen: false,
                         mainTask: state.todo_todo_addMainInput,
                         subTask: []
                     }],
@@ -68,6 +87,7 @@ const Reducer = (state = initState, action) => {
             let result = state.todo_todo_data.map((val) => {
                 if (val.id === action.addMainTask.id) {
                     val.subTask.push(state.todo_todo_addSubInput)
+                    val.modalOpen=false
                     return val
                 } else {
                     return val
@@ -88,7 +108,8 @@ const Reducer = (state = initState, action) => {
 
         case 'TODO_DELETE_TODO_MAINTASK':
             let afterDelete = state.todo_todo_data.filter((value) => {
-            return value !== action.deleteTask})
+                return value !== action.deleteTask
+            })
             return Object.assign({}, state, {
                 todo_todo_data: afterDelete
             })

@@ -62,8 +62,9 @@ class Index extends Component {
                                             <div key={index} style={{ display: 'flex', alignItems: 'center' }}>
                                                 <div hidden={false}>
                                                     <Modal
-                                                        trigger={<Icon name='add' size='large' onClick={this.props.handleTodoAddSubOpen} />}
-                                                        open={this.props.todo_subModalOpen}
+                                                        trigger={<Icon name='add' size='large' onClick={()=>this.props.handleTodoAddSubOpen(val)} />}
+                                                        // open={this.props.todo_subModalOpen}
+                                                        open={val.modalOpen}
                                                         onClose={this.props.handleTodoAddMainCancel}
                                                         basic
                                                         size='small'>
@@ -99,8 +100,8 @@ class Index extends Component {
                                                 <div style={{ display: 'flex', alignItems: 'center' }}>
                                                     <div hidden={false}>
                                                         <Modal
-                                                            trigger={<Icon name='add' size='large' onClick={this.props.handleTodoAddSubOpen} />}
-                                                            open={this.props.todo_subModalOpen}
+                                                            trigger={<Icon name='add' size='large' onClick={()=>this.props.handleTodoAddSubOpen(val)} />}
+                                                            open={val.modalOpen}
                                                             onClose={this.props.handleTodoAddSubCancel}
                                                             basic
                                                             size='small'>
@@ -209,8 +210,8 @@ const mapDispatchToProps = (dispatch) => {
         handleTodoAddSubCancel: () => {
             dispatch(todo_handleTodoAddSubCancel())
         },
-        handleTodoAddSubOpen: () => {
-            dispatch(todo_handleTodoAddSubOpen())
+        handleTodoAddSubOpen: (val) => {
+            dispatch(todo_handleTodoAddSubOpen(val))
         },
 
     }

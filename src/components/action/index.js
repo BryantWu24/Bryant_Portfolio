@@ -48,9 +48,10 @@ export const todo_handleTodoAddSubCancel = () => {
         type: 'TODO_HANDLE_TODO_ADD_SUB_CANCEL'
     }
 }
-export const todo_handleTodoAddSubOpen = () => {
+export const todo_handleTodoAddSubOpen = (val) => {
     return {
-        type: 'TODO_HANDLE_TODO_ADD_SUB_OPEN'
+        type: 'TODO_HANDLE_TODO_ADD_SUB_OPEN',
+        whoOpen:val
     }
 }
 
