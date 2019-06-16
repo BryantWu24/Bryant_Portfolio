@@ -43,21 +43,43 @@ export const todo_handleTodoAddSubInput = (val) => {
     }
 }
 
-export const todo_handleTodoAddSubCancel = () => {
+export const todo_handleTodoAddSubCancel = (val) => {
     return {
-        type: 'TODO_HANDLE_TODO_ADD_SUB_CANCEL'
+        type: 'TODO_HANDLE_TODO_ADD_SUB_CANCEL',
+        whoOpen:val
     }
 }
 export const todo_handleTodoAddSubOpen = (val) => {
     return {
         type: 'TODO_HANDLE_TODO_ADD_SUB_OPEN',
-        whoOpen:val
+        whoOpen: val
     }
 }
 
-export const todo_deleteTodoMainTask =(val)=>{
-    return{
-        type:'TODO_DELETE_TODO_MAINTASK',
-        deleteTask:val
+export const todo_deleteTodoMainTask = (val) => {
+    return {
+        type: 'TODO_DELETE_TODO_MAINTASK',
+        deleteTask: val
+    }
+}
+
+export const todo_handleTodoMouseMove = (val) => {
+    return {
+        type: 'TODO_HANDLE_TODO_MOUSE_MOVE',
+        whoMove: val
+    }
+}
+
+export const todo_handleTodoMouseLeave = (val) => {
+    return {
+        type: 'TODO_HANDLE_TODO_MOUSE_LEAVE',
+        whoLeave: val
+    }
+}
+
+export const todo_handleTodoDetail = (val)=>{
+    return {
+        type:'TODO_HANDLE_TODO_DETAIL',
+        whoHidden:val
     }
 }
